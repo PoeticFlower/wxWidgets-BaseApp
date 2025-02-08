@@ -1,4 +1,5 @@
 # Configuring Global Options
+cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
 project(BaseProject)
 
 # Configure wxWidgets default build options
