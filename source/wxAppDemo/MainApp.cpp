@@ -9,7 +9,9 @@
  *****************************************************************************/
 
 #include <wx/wx.h>
+#include <wx/listctrl.h>
 #include "GlobalConstants.h"
+#include "ListViewEx.h"
 #include "MainFrame.h"
 #include "MainApp.h"
 

@@ -18,8 +18,11 @@ public:
 private:
   void InitializeMenuBar();
   void InitializeMessageBinding();
+  void WriteDemoData();
 public:
   void OnMenuFileExit                              (wxCommandEvent& event);
+private:
+  ListViewEx            *m_pListViewMain;
 };
 
 #endif // GUI_WXWIDGETS_MAIN_FRAME_H_
