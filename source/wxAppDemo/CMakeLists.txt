@@ -2,6 +2,7 @@
 file(GLOB WX_APPLICATION_DEMO_HEADER_FILES
     LIST_DIRECTORIES false CONFIGURE_DEPENDS
     GlobalConstants.h
+    ListViewEx.h
     MainApp.h
     MainFrame.h
     )
@@ -9,6 +10,7 @@ file(GLOB WX_APPLICATION_DEMO_HEADER_FILES
 file(GLOB WX_APPLICATION_DEMO_SOURCE_FILES
     LIST_DIRECTORIES false CONFIGURE_DEPENDS
     GlobalConstants.cpp
+    ListViewEx.cpp
     MainApp.cpp
     MainFrame.cpp
     )
