@@ -276,11 +276,35 @@ protected:
     }
 
     m_adapter->SortByColumn(col, m_sortAscending);
-    m_adapter->FullRefreshList(this);
+    SetTable(m_adapter);
+
+    UpdateColumnText(col);
+  }
+  void UpdateColumnText(int sortedCol)
+  {
+    for (int i = 0; i < GetColumnCount(); ++i)
+    {
+      wxListItem item;
+      item.SetMask(wxLIST_MASK_TEXT);
+      GetColumn(i, item);
+      wxString colName = item.GetText();
+
+      colName.Replace(" ▲", "");
+      colName.Replace(" ▼", "");
+
+      if (i == sortedCol)
+      {
+        colName += m_sortAscending ? " ▲" : " ▼";
+      }
+
+      item.SetText(colName);
+      SetColumn(i, item);
+    }
   }
   // Prevent direct modification of wxListView
   void InsertItem    (long, const wxString&) = delete;
   void SetItem       (long, int, const wxString&) = delete;
   void DeleteAllItems() = delete;
 };
+
 #endif // GUI_WXWIDGETS_MAIN_APP_LIST_VIEW_EX_H_
