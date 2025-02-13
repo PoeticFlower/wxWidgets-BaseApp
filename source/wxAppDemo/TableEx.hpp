@@ -6,6 +6,10 @@
 #include <map>
 #include <functional>
 
+#ifdef _MSC_VER
+#define snprintf _snprintf_s
+#endif
+
 /*****************************************************************************
  *
  * STRUCT  : ColumnInfo
@@ -95,7 +99,7 @@ struct ColumnData
     if (!columnInfo)
       return "";
 
-    constexpr size_t BUFFER_SIZE = 256;
+    const size_t     BUFFER_SIZE = 256;
     char      buffer[BUFFER_SIZE];
 
     snprintf(buffer, BUFFER_SIZE, columnInfo->format.c_str(),
