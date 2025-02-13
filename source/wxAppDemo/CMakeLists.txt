@@ -5,6 +5,7 @@ file(GLOB WX_APPLICATION_DEMO_HEADER_FILES
     ListViewEx.h
     MainApp.h
     MainFrame.h
+    TableEx.h
     )
 
 file(GLOB WX_APPLICATION_DEMO_SOURCE_FILES
