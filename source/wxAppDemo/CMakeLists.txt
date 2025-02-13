@@ -2,16 +2,15 @@
 file(GLOB WX_APPLICATION_DEMO_HEADER_FILES
     LIST_DIRECTORIES false CONFIGURE_DEPENDS
     GlobalConstants.h
-    ListViewEx.h
+    ListViewEx.hpp
     MainApp.h
     MainFrame.h
-    TableEx.h
+    TableEx.hpp
     )
 
 file(GLOB WX_APPLICATION_DEMO_SOURCE_FILES
     LIST_DIRECTORIES false CONFIGURE_DEPENDS
     GlobalConstants.cpp
-    ListViewEx.cpp
     MainApp.cpp
     MainFrame.cpp
     )
