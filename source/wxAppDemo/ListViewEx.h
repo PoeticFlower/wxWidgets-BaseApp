@@ -41,4 +41,4 @@ private:
   std::vector<std::vector<wxString>> m_items;
 };
 
-#endif // GUI_WXWIDGETS_MAIN_APP_GLOBAL_CONSTANTS_H_
+#endif // GUI_WXWIDGETS_MAIN_APP_LIST_VIEW_EX_H_
