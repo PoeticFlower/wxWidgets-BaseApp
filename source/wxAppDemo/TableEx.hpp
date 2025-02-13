@@ -102,13 +102,10 @@ struct ColumnData
     const size_t     BUFFER_SIZE = 256;
     char      buffer[BUFFER_SIZE];
 
-    snprintf(buffer, BUFFER_SIZE, columnInfo->format.c_str(),
-      (type == ColumnType::FLOAT      ) ? value.f      :
-      (type == ColumnType::DOUBLE     ) ? value.d      :
-      (type == ColumnType::UINT32     ) ? value.u32    :
-      (type == ColumnType::UINT64     ) ? value.u64    :
-      (type == ColumnType::INT64      ) ? value.i64    :
-                                          value.i32   );
+    snprintf(buffer,
+      BUFFER_SIZE,
+      columnInfo->format.c_str(),
+      value.d);
     return std::string(buffer);
   }
 
@@ -125,14 +122,10 @@ struct ColumnData
     constexpr size_t BUFFER_SIZE = 256;
     wchar_t   buffer[BUFFER_SIZE];
 
-    swprintf(buffer, BUFFER_SIZE,
+    swprintf(buffer,
+      BUFFER_SIZE,
       std::wstring(columnInfo->format.begin(), columnInfo->format.end()).c_str(),
-      (type == ColumnType::FLOAT      ) ? value.f      :
-      (type == ColumnType::DOUBLE     ) ? value.d      :
-      (type == ColumnType::UINT32     ) ? value.u32    :
-      (type == ColumnType::UINT64     ) ? value.u64    :
-      (type == ColumnType::INT64      ) ? value.i64    :
-                                          value.i32   );
+      value.d);
     return std::wstring(buffer);
   }
 };
