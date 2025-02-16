@@ -12,7 +12,8 @@
 #include <wx/listctrl.h>
 #include "GlobalConstants.h"
 #include "TableEx.hpp"
-#include "ListViewEx.hpp"
+#include "TableExAdapter.hpp"
+#include "ListViewEx.h"
 #include "MainFrame.h"
 #include "MainApp.h"
 

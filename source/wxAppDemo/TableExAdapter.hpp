@@ -8,10 +8,19 @@
  *
  *****************************************************************************/
 
-#ifndef   GUI_WXWIDGETS_MAIN_APP_LIST_VIEW_EX_H_
-#define   GUI_WXWIDGETS_MAIN_APP_LIST_VIEW_EX_H_
+#ifndef   GUI_WXWIDGETS_MAIN_APP_TABLE_VIEW_EX_ADAPTER_H_
+#define   GUI_WXWIDGETS_MAIN_APP_TABLE_VIEW_EX_ADAPTER_H_
 
 #include <fstream>
+
+/*****************************************************************************
+ * TableExtraInfo for wxListView InsertColumn
+ *****************************************************************************/
+struct TableExtraInfo
+{
+  int      format;
+  int      width;
+};
 
 /*****************************************************************************
  *
@@ -122,8 +131,8 @@ public:
       listView->InsertColumn(
         col,
         table->GetColumnInfo(col).name,
-        wxLIST_FORMAT_LEFT,
-        150);
+        table->GetColumnInfo(col).extraInfo.format,
+        table->GetColumnInfo(col).extraInfo.width);
     }
 
     // Insert all data
@@ -206,4 +215,4 @@ public:
   }
 };
 
-#endif // GUI_WXWIDGETS_MAIN_APP_LIST_VIEW_EX_H_
+#endif // GUI_WXWIDGETS_MAIN_APP_TABLE_VIEW_EX_ADAPTER_H_
