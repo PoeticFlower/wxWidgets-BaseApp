@@ -33,6 +33,7 @@ add_executable            (wxAppDemo
     )
 target_link_libraries     (wxAppDemo
     wx::mono
+    BasicModule
     )
 
 ## Configure platform-specific build options

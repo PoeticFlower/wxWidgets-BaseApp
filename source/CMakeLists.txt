@@ -8,4 +8,5 @@ set(wxBUILD_SHARED                                OFF)
 
 # Process each subdirectory one by one
 add_subdirectory(thirdparty)
+add_subdirectory(BasicModule)
 add_subdirectory(wxAppDemo)
