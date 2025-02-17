@@ -11,6 +11,7 @@
 #include <wx/listctrl.h>
 #include <wx/menu.h>
 #include <wx/filedlg.h>
+#include <wx/clipbrd.h>
 #include "TableEx.hpp"
 #include "TableExAdapter.hpp"
 #include "ListViewEx.h"
@@ -38,6 +39,7 @@ ListViewEx::ListViewEx(
   Bind(wxEVT_MENU, &ListViewEx::OnClearFilter  , this, MENU_ITEM_CLEAR_FILTER   );
   Bind(wxEVT_MENU, &ListViewEx::OnEditItem     , this, MENU_ITEM_EDIT_ITEM      );
   Bind(wxEVT_MENU, &ListViewEx::OnBatchEditItem, this, MENU_ITEM_BATCH_EDIT_ITEM);
+  Bind(wxEVT_MENU, &ListViewEx::OnCopyAddress  , this, MENU_ITEM_COPY_ADDRESS   );
   Bind(wxEVT_MENU, &ListViewEx::OnExportCSV    , this, MENU_ITEM_EXPORT_CSV     );
 }
 
@@ -71,7 +73,8 @@ void ListViewEx::OnItemRightClick(wxListEvent& event)
   // Dynamically add menu item
   if      (selectedCount == 1)
   {
-    menu.Append(MENU_ITEM_EDIT_ITEM, "Edit");
+    menu.Append(MENU_ITEM_EDIT_ITEM      , "Edit");
+    menu.Append(MENU_ITEM_COPY_ADDRESS   , "Copy Address");
   }
   else if (selectedCount >  1)
   {
@@ -151,6 +154,22 @@ void ListViewEx::OnBatchEditItem(wxCommandEvent&)
       m_editCallback(editData, m_editCallbackPara);
       SetTable(m_adapter);
     }
+  }
+}
+
+void ListViewEx::OnCopyAddress(wxCommandEvent&)
+{
+  long itemIndex = GetNextItem(-1, wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED);
+  if (itemIndex == -1)
+    return;
+
+  // Get column 2 data (index 1 in wxListView, since index 0 is ID
+  wxString address = GetItemText(itemIndex, 1);
+
+  if (wxTheClipboard->Open())
+  {
+    wxTheClipboard->SetData(new wxTextDataObject(address));
+    wxTheClipboard->Close();
   }
 }
 

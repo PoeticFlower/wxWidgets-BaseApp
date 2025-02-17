@@ -51,6 +51,8 @@ public:
   void OnEditItem          (wxCommandEvent&);
   // Handle batch editing
   void OnBatchEditItem     (wxCommandEvent&);
+  // Handle Copy Address
+  void OnCopyAddress       (wxCommandEvent&);
   // Handle exporting data to CSV
   void OnExportCSV         (wxCommandEvent&);
   // Show a dialog for updating the filter
@@ -88,6 +90,7 @@ protected:
   const int32_t MENU_ITEM_EDIT_ITEM              = 32103;
   const int32_t MENU_ITEM_BATCH_EDIT_ITEM        = 32104;
   const int32_t MENU_ITEM_EXPORT_CSV             = 32105;
+  const int32_t MENU_ITEM_COPY_ADDRESS           = 32106;
 };
 
 #endif // GUI_WXWIDGETS_MAIN_APP_LIST_VIEW_EX_H_
