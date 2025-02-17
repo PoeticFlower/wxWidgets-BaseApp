@@ -22,7 +22,9 @@ private:
 public:
   void OnMenuFileExit                              (wxCommandEvent& event);
 private:
-  ListViewEx            *m_pListViewMain;
+  ListViewEx                                     *m_pListViewMain;
+  TableEx       <TableExtraInfo, 6>               m_tableDemo;
+  TableExAdapter<TableExtraInfo, 6>               m_adapterDemo;
 };
 
 #endif // GUI_WXWIDGETS_MAIN_FRAME_H_

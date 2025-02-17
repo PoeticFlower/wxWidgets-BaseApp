@@ -10,10 +10,10 @@
 
 #include <wx/wx.h>
 #include <wx/listctrl.h>
+#include <TableEx.hpp>
+#include <TableExAdapter.hpp>
+#include <ListViewEx.h>
 #include "GlobalConstants.h"
-#include "TableEx.hpp"
-#include "TableExAdapter.hpp"
-#include "ListViewEx.h"
 #include "MainFrame.h"
 #include "MainApp.h"
 
