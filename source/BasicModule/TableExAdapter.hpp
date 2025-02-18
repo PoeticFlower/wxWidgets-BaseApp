@@ -92,7 +92,7 @@ public:
     {
       for (size_t col = 0; col < N; ++col)
       {
-        file << row[col].FormatValue();
+        file << row[col].FormatValueW();
         if (col < N - 1)
           file << ",";
       }
@@ -139,10 +139,10 @@ public:
     int rowIndex = 0;
     table->ForEach([&](const typename TableEx<C, N>::RowData& row)
     {
-      long itemIndex = listView->InsertItem(rowIndex, row[0].FormatValue());
+      long itemIndex = listView->InsertItem(rowIndex, row[0].FormatValueW());
       for (size_t col = 1; col < N; ++col)
       {
-        listView->SetItem(itemIndex, col, row[col].FormatValue());
+        listView->SetItem(itemIndex, col, row[col].FormatValueW());
       }
       ++rowIndex;
     });
@@ -181,8 +181,8 @@ public:
       {
         for (size_t col = 0; col < N; ++col)
         {
-          wxString newValue = newData[rowIndex][col].FormatValue();
-          wxString oldValue = oldData[rowIndex][col].FormatValue();
+          wxString newValue = newData[rowIndex][col].FormatValueW();
+          wxString oldValue = oldData[rowIndex][col].FormatValueW();
 
           if (newValue != oldValue) // **只有该列数据不同才更新**
           {
@@ -195,11 +195,11 @@ public:
     for (size_t rowIndex = minSize; rowIndex < newData.size(); ++rowIndex)
     {
       long itemIndex = listView->InsertItem(
-        rowIndex, newData[rowIndex][0].FormatValue());
+        rowIndex, newData[rowIndex][0].FormatValueW());
       for (size_t col = 1; col < N; ++col)
       {
         listView->SetItem(
-          itemIndex, col, newData[rowIndex][col].FormatValue());
+          itemIndex, col, newData[rowIndex][col].FormatValueW());
       }
     }
 

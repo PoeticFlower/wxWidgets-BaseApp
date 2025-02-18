@@ -129,7 +129,7 @@ struct ColumnData
     if (!columnInfo)
       return L"";
 
-    constexpr size_t BUFFER_SIZE = 256;
+    const     size_t BUFFER_SIZE = 256;
     wchar_t   buffer[BUFFER_SIZE];
 
     swprintf(buffer,
